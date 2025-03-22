@@ -1,4 +1,5 @@
 // import Image from "next/image";
+import AddToCart from "@/components/AddToCart";
 import { IProductItemProps } from "@/components/productItem";
 import Image from "next/image";
 import React from "react";
@@ -23,11 +24,7 @@ async function Product({ params }: Iproduct) {
         <p className="font-bold">
           قیمت: <span>${data.price}</span>
         </p>
-        <div className="mt-3">
-          <button className="bg-sky-500 text-white px-4 py-2 rounded">+</button>
-          <span className="mx-2">3</span>
-          <button className="bg-sky-500 text-white px-4 py-2 rounded">-</button>
-        </div>
+        <AddToCart />
       </div>
       <div className="grid col-span-3">
         <Image src={data.image} alt="" width={200} height={100} />
