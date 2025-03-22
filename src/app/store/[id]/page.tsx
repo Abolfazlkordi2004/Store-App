@@ -24,7 +24,7 @@ async function Product({ params }: Iproduct) {
         <p className="font-bold">
           قیمت: <span>${data.price}</span>
         </p>
-        <AddToCart />
+        <AddToCart id={id} />
       </div>
       <div className="grid col-span-3">
         <Image src={data.image} alt="" width={200} height={100} />
