@@ -12,7 +12,10 @@ type CartItems = {
 
 type TshoppinCartContext = {
   cartItems: CartItems[];
-  handleProductqty: (id: number) => void;
+  handleIncreaseProductqty: (id: number) => void;
+  handlDecreaseProductqty: (id: number) => void;
+  getProductqty: (id: number) => number;
+  totalQty: number;
 };
 
 const shoppinCartContext = createContext({} as TshoppinCartContext);
@@ -25,7 +28,15 @@ export function ShoppingCartContextProvider({
 }: ShoppingCartContextProviderProps) {
   const [cartItems, setcartItems] = useState<CartItems[]>([]);
 
-  const handleProductqty = (id: number) => {
+  const getProductqty = (id: number) => {
+    return cartItems.find((item) => item.id == id)?.qty || 0;
+  };
+
+  const totalQty = cartItems.reduce((totalitem, item) => {
+    return totalitem + item.qty;
+  }, 0);
+
+  const handleIncreaseProductqty = (id: number) => {
     setcartItems((currentitem) => {
       const isProductNotExist =
         currentitem.find((item) => item.id == id) == null;
@@ -47,8 +58,45 @@ export function ShoppingCartContextProvider({
     });
   };
 
+  const handlDecreaseProductqty = (id: number) => {
+    setcartItems((currentitem) => {
+      const isProductNotExist =
+        currentitem.find((item) => item.id == id) == null;
+
+      if (isProductNotExist) {
+        return [...currentitem, { id: id, qty: 0 }];
+      } else {
+        return currentitem.map((item) => {
+          if (item.id == id) {
+            if (item.qty > 0) {
+              return {
+                ...item,
+                qty: item.qty - 1,
+              };
+            } else {
+              return {
+                ...item,
+                qty: 0,
+              };
+            }
+          } else {
+            return item;
+          }
+        });
+      }
+    });
+  };
+
   return (
-    <shoppinCartContext.Provider value={{ cartItems, handleProductqty }}>
+    <shoppinCartContext.Provider
+      value={{
+        cartItems,
+        handleIncreaseProductqty,
+        getProductqty,
+        totalQty,
+        handlDecreaseProductqty,
+      }}
+    >
       {children}
     </shoppinCartContext.Provider>
   );
