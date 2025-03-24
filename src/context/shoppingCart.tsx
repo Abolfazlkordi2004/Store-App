@@ -14,6 +14,7 @@ type TshoppinCartContext = {
   cartItems: CartItems[];
   handleIncreaseProductqty: (id: number) => void;
   handlDecreaseProductqty: (id: number) => void;
+  handleRemoveProduct: (id: number) => void;
   getProductqty: (id: number) => number;
   totalQty: number;
 };
@@ -60,30 +61,28 @@ export function ShoppingCartContextProvider({
 
   const handlDecreaseProductqty = (id: number) => {
     setcartItems((currentitem) => {
-      const isProductNotExist =
-        currentitem.find((item) => item.id == id) == null;
+      const isLastOne = currentitem.find((item) => item.id == id)?.qty == 1;
 
-      if (isProductNotExist) {
-        return [...currentitem, { id: id, qty: 0 }];
+      if (isLastOne) {
+        return currentitem.filter((item) => item.id != id);
       } else {
         return currentitem.map((item) => {
           if (item.id == id) {
-            if (item.qty > 0) {
-              return {
-                ...item,
-                qty: item.qty - 1,
-              };
-            } else {
-              return {
-                ...item,
-                qty: 0,
-              };
-            }
+            return {
+              ...item,
+              qty: item.qty - 1,
+            };
           } else {
             return item;
           }
         });
       }
+    });
+  };
+
+  const handleRemoveProduct = (id: number) => {
+    setcartItems((currentItem) => {
+      return currentItem.filter((item) => item.id != id);
     });
   };
 
@@ -95,6 +94,7 @@ export function ShoppingCartContextProvider({
         getProductqty,
         totalQty,
         handlDecreaseProductqty,
+        handleRemoveProduct,
       }}
     >
       {children}
