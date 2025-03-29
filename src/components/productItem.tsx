@@ -11,7 +11,7 @@ export interface IProductItemProps {
 function ProductItem({ image, title, price }: IProductItemProps) {
   return (
     <div className="shadow-md">
-      <Image src={image} alt="" width={100} height={100}/>
+      <Image src={image} alt="image" width={100} height={100}/>
       <div className="p-2 text-right rtl">
         <h3 className="font-bold">{title}</h3>
         <p>

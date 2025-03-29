@@ -25,5 +25,11 @@
       "image": "https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/242ce817-97a3-48fe-9acd-b1bf97930b01/09-posterization-opt.jpg",
       "price": 55
     }
+  ],
+  "discount":[
+    {"id":1,"code":"OFF10","percentage":10},
+    {"id":2,"code":"OFF20","percentage":20},
+    {"id":3,"code":"OFF30","percentage":30}
+
   ]
 }

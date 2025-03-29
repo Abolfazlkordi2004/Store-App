@@ -27,7 +27,7 @@ async function Product({ params }: Iproduct) {
         <AddToCart id={id} />
       </div>
       <div className="grid col-span-3">
-        <Image src={data.image} alt="" width={200} height={100} />
+        <Image src={data.image} alt="image" width={200} height={100} />
       </div>
     </div>
   );

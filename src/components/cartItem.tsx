@@ -1,29 +1,41 @@
+import axios from "axios";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { IProductItemProps } from "./productItem";
+import AddToCart from "./AddToCart";
 
-function CartItem() {
+interface ICarItemProps {
+  id: number;
+  qty: number;
+}
+
+function CartItem({ id, qty }: ICarItemProps) {
+  const [data, setData] = useState({} as IProductItemProps) ;
+
+  useEffect(() => {
+    axios(`http://localhost:3001/products/${id}`).then((result) => {
+      const { data } = result;
+      setData(data);
+    });
+  });
   return (
     <div className="grid grid-cols-12 mt-8 shadow-md mb-6">
       <div className="grid col-span-9 rtl text-right p-4">
-        <h1 className="text-black font-bold text-xl">محصول 1</h1>
+        <h1 className="text-black font-bold text-xl">{data.title}</h1>
         <p>
-          تعداد: <span>3</span>
+          تعداد: <span>{qty}</span>
         </p>
         <p className="font-bold rtl:">
-          محصول قیمت: <span>$45</span>
+          محصول قیمت: <span>${data.price}</span>
         </p>
-        <div className="mt-3">
-          <button className="bg-sky-500 text-white px-4 py-2 rounded">+</button>
-          <span className="mx-2">3</span>
-          <button className="bg-sky-500 text-white px-4 py-2 rounded">-</button>
-        </div>
+        <AddToCart id={id.toString()}/>
       </div>
       <div className="grid col-span-3">
         <Image
           src={
-            "https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/242ce817-97a3-48fe-9acd-b1bf97930b01/09-posterization-opt.jpg"
+            data.image
           }
-          alt=""
+          alt="image"
           width={200}
           height={150}
         />
