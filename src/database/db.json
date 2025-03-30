@@ -24,12 +24,48 @@
       "title": "محصول 4",
       "image": "https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/242ce817-97a3-48fe-9acd-b1bf97930b01/09-posterization-opt.jpg",
       "price": 55
+    },
+    {
+      "id": "5",
+      "title": "محصول 5",
+      "image": "https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/242ce817-97a3-48fe-9acd-b1bf97930b01/09-posterization-opt.jpg",
+      "price": 105
+    },
+    {
+      "id": "6",
+      "title": "محصول 6",
+      "image": "https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/242ce817-97a3-48fe-9acd-b1bf97930b01/09-posterization-opt.jpg",
+      "price": 25
+    },
+    {
+      "id": "7",
+      "title": "محصول 7",
+      "image": "https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/242ce817-97a3-48fe-9acd-b1bf97930b01/09-posterization-opt.jpg",
+
+      "price": 35
+    },
+    {
+      "id": "8",
+      "title": "محصول 8",
+      "image": "https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/242ce817-97a3-48fe-9acd-b1bf97930b01/09-posterization-opt.jpg",
+      "price": 65
+    },
+    {
+      "id": "9",
+      "title": "محصول 9",
+      "image": "https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/242ce817-97a3-48fe-9acd-b1bf97930b01/09-posterization-opt.jpg",
+      "price": 80
+    },
+    {
+      "id": "10",
+      "title": "محصول 10",
+      "image": "https://archive.smashing.media/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/242ce817-97a3-48fe-9acd-b1bf97930b01/09-posterization-opt.jpg",
+      "price": 75
     }
   ],
-  "discount":[
-    {"id":1,"code":"OFF10","percentage":10},
-    {"id":2,"code":"OFF20","percentage":20},
-    {"id":3,"code":"OFF30","percentage":30}
-
+  "discount": [
+    { "id": 1, "code": "OFF10", "percentage": 10 },
+    { "id": 2, "code": "OFF20", "percentage": 20 },
+    { "id": 3, "code": "OFF30", "percentage": 30 }
   ]
 }

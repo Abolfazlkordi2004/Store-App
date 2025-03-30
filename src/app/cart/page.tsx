@@ -54,7 +54,7 @@ function Cart() {
 
       <div className="border shadow-md text-right p-4">
         <h3>
-          قیمت کل:{" "}
+          
           <span>
             {cartItems.reduce((total, item) => {
               const selectedProduct = data.find(

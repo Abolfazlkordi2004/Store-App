@@ -8,6 +8,16 @@ export interface IProductItemProps {
   price: number;
 }
 
+export interface IProductList{
+  first:number|null,
+  items:number|null,
+  last:number|null,
+  next:number|null,
+  pages:number,
+  prev:number|null,
+  data:IProductItemProps[]
+}
+
 function ProductItem({ image, title, price }: IProductItemProps) {
   return (
     <div className="shadow-md">
