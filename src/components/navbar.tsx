@@ -21,6 +21,10 @@ function Navbar() {
       href: "/dashboard",
       title: "دشبورد",
     },
+    {
+      href: "/login",
+      title: "ورود",
+    },
   ];
   return (
     <Conatiner>

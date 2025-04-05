@@ -11,7 +11,7 @@ interface IStoreProps {
 
 async function Store({ searchParams }: IStoreProps) {
   const page = (await searchParams).page ?? "1";
-  const per_page = (await searchParams).per_page ?? "1";
+  const per_page = (await searchParams).per_page ?? "20";
 
   interface product {
     id: string;
